@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Post;
+use App\Item;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -42,6 +43,11 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
     }
 
     public function ownsPost(Post $post)
